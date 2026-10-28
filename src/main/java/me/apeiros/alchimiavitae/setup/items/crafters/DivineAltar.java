@@ -9,10 +9,10 @@ import org.bukkit.configuration.Configuration;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
+import io.github.thebusybiscuit.slimefun5.api.items.ItemGroup;
+import io.github.thebusybiscuit.slimefun5.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun5.api.recipes.RecipeType;
+import io.github.thebusybiscuit.slimefun5.implementation.SlimefunItems;
 
 import me.apeiros.alchimiavitae.AlchimiaUtils;
 import me.apeiros.alchimiavitae.AlchimiaVitae;
@@ -25,11 +25,11 @@ import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 public class DivineAltar extends AbstractCrafter<SlimefunItemStack> {
 
     public DivineAltar(ItemGroup ig) {
-        super(ig, AlchimiaItems.DIVINE_ALTAR, RecipeType.ANCIENT_ALTAR, new ItemStack[] {
+        super(ig, AlchimiaItems.DIVINE_ALTAR, RecipeType.ANCIENT_ALTAR, AlchimiaUtils.recipe(
                 AlchimiaItems.EXP_CRYSTAL, SlimefunItems.ELECTRO_MAGNET, AlchimiaItems.EXP_CRYSTAL,
                 SlimefunItems.BLISTERING_INGOT_3, SlimefunItems.ANCIENT_ALTAR, SlimefunItems.BLISTERING_INGOT_3,
                 SlimefunItems.ANCIENT_PEDESTAL, SlimefunItems.HEATED_PRESSURE_CHAMBER, SlimefunItems.ANCIENT_PEDESTAL
-        });
+        ));
     }
 
     // {{{ Set up effects
@@ -151,7 +151,7 @@ public class DivineAltar extends AbstractCrafter<SlimefunItemStack> {
                     layer--;
                 } else {
                     // Output the item
-                    ItemStack newItem = item.clone();
+                    ItemStack newItem = item.item().clone();
 
                     if (menu.fits(newItem, OUT_SLOTS)) {
                         menu.pushItem(newItem, OUT_SLOTS);

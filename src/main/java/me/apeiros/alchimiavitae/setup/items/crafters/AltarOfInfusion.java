@@ -20,13 +20,12 @@ import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import io.github.mooy1.infinitylib.core.AbstractAddon;
-import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
+import io.github.thebusybiscuit.slimefun5.api.items.ItemGroup;
+import io.github.thebusybiscuit.slimefun5.api.items.SlimefunItem;
+import io.github.thebusybiscuit.slimefun5.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun5.api.recipes.RecipeType;
+import io.github.thebusybiscuit.slimefun5.implementation.SlimefunItems;
+import io.github.thebusybiscuit.slimefun5.libraries.dough.items.CustomItemStack;
 
 import me.apeiros.alchimiavitae.AlchimiaUtils;
 import me.apeiros.alchimiavitae.AlchimiaVitae;
@@ -40,11 +39,11 @@ public class AltarOfInfusion extends AbstractCrafter<Infusion> {
     private static final int TOOL_SLOT = 10;
 
     public AltarOfInfusion(ItemGroup ig, DivineAltar divineAltar) {
-        super(ig, AlchimiaItems.ALTAR_OF_INFUSION, AlchimiaUtils.RecipeTypes.DIVINE_ALTAR, new ItemStack[]{
+        super(ig, AlchimiaItems.ALTAR_OF_INFUSION, AlchimiaUtils.RecipeTypes.DIVINE_ALTAR, AlchimiaUtils.recipe(
                 AlchimiaItems.EXP_CRYSTAL, SlimefunItems.WITHER_PROOF_GLASS, AlchimiaItems.EXP_CRYSTAL,
                 SlimefunItems.REINFORCED_PLATE, new ItemStack(Material.BEACON), SlimefunItems.REINFORCED_PLATE,
                 SlimefunItems.BLISTERING_INGOT_3, AlchimiaItems.DIVINE_ALTAR, SlimefunItems.BLISTERING_INGOT_3
-        });
+        ));
 
         // Add recipe to Divine Altar
         divineAltar.newRecipe(AlchimiaItems.ALTAR_OF_INFUSION, this.getRecipe());
@@ -79,11 +78,11 @@ public class AltarOfInfusion extends AbstractCrafter<Infusion> {
         boolean knockbackEnabled        = cfg.getBoolean("options.infusions.infusion-knockback");
 
         // Create placeholder items
-        CustomItemStack validMelee      = new CustomItemStack(Material.DIAMOND_SWORD, "&a&oA gold, iron, diamond,", "&a&oor netherite axe or sword");
-        CustomItemStack validRanged     = new CustomItemStack(Material.BOW, "&a&oA bow or crossbow");
-        CustomItemStack validHoe        = new CustomItemStack(Material.DIAMOND_HOE, "&a&oA gold, iron, diamond,", "&a&oor netherite hoe");
-        CustomItemStack validChestplate = new CustomItemStack(Material.DIAMOND_CHESTPLATE, "&a&oA gold, iron, diamond, or", "&a&onetherite chestplate");
-        CustomItemStack validFishingRod = new CustomItemStack(Material.FISHING_ROD, "&a&oA fishing rod");
+        ItemStack validMelee      = CustomItemStack.create(Material.DIAMOND_SWORD, "&a&oA gold, iron, diamond,", "&a&oor netherite axe or sword");
+        ItemStack validRanged     = CustomItemStack.create(Material.BOW, "&a&oA bow or crossbow");
+        ItemStack validHoe        = CustomItemStack.create(Material.DIAMOND_HOE, "&a&oA gold, iron, diamond,", "&a&oor netherite hoe");
+        ItemStack validChestplate = CustomItemStack.create(Material.DIAMOND_CHESTPLATE, "&a&oA gold, iron, diamond, or", "&a&onetherite chestplate");
+        ItemStack validFishingRod = CustomItemStack.create(Material.FISHING_ROD, "&a&oA fishing rod");
 
         // Get ItemGroup and RecipeType
         ItemGroup ig = AlchimiaUtils.ItemGroups.INFUSIONS;
@@ -97,11 +96,11 @@ public class AltarOfInfusion extends AbstractCrafter<Infusion> {
                 Infusion.DESTRUCTIVE_CRITS,
 
                 // In
-                new ItemStack[] {
+                AlchimiaUtils.recipe(
                         new ItemStack(Material.TNT), SlimefunItems.EXPLOSIVE_PICKAXE, new ItemStack(Material.STONECUTTER),
                         AlchimiaItems.DARKSTEEL, validMelee, SlimefunItems.WITHER_PROOF_OBSIDIAN,
                         new ItemStack(Material.REDSTONE_BLOCK), SlimefunItems.WITHER_PROOF_OBSIDIAN, new ItemStack(Material.TNT)
-                }
+                )
             );
         }
 
@@ -109,11 +108,11 @@ public class AltarOfInfusion extends AbstractCrafter<Infusion> {
             this.newRecipe(ig, rt,
                 Infusion.PHANTOM_CRITS,
 
-                new ItemStack[] {
+                AlchimiaUtils.recipe(
                     new ItemStack(Material.PHANTOM_MEMBRANE), SlimefunItems.MAGICAL_GLASS, new ItemStack(Material.PHANTOM_MEMBRANE),
                     AlchimiaItems.DARKSTEEL, validMelee, SlimefunItems.HARDENED_GLASS,
                     new ItemStack(Material.PHANTOM_MEMBRANE), AlchimiaItems.CONDENSED_SOUL, new ItemStack(Material.PHANTOM_MEMBRANE)
-                }
+                )
             );
         }
         // }}}
@@ -123,11 +122,11 @@ public class AltarOfInfusion extends AbstractCrafter<Infusion> {
             this.newRecipe(ig, rt,
                 Infusion.FORCEFUL,
 
-                new ItemStack[] {
+                AlchimiaUtils.recipe(
                     SlimefunItems.ELECTRO_MAGNET, new ItemStack(Material.PISTON), SlimefunItems.STAFF_WIND,
                     SlimefunItems.INFUSED_MAGNET, validRanged, SlimefunItems.STEEL_THRUSTER,
                     SlimefunItems.ELECTRO_MAGNET, new ItemStack(Material.PISTON), SlimefunItems.TALISMAN_TRAVELLER
-                }
+                )
             );
         }
 
@@ -135,11 +134,11 @@ public class AltarOfInfusion extends AbstractCrafter<Infusion> {
             this.newRecipe(ig, rt,
                 Infusion.HEALING,
 
-                new ItemStack[] {
+                AlchimiaUtils.recipe(
                     AlchimiaItems.BENEVOLENT_BREW, SlimefunItems.MEDICINE, SlimefunItems.VITAMINS,
                     AlchimiaItems.ILLUMIUM, validRanged, new ItemStack(Material.TOTEM_OF_UNDYING),
                     new ItemStack(Material.ENCHANTED_GOLDEN_APPLE), SlimefunItems.MEDICINE, SlimefunItems.MAGIC_SUGAR
-                }
+                )
             );
         }
 
@@ -147,11 +146,11 @@ public class AltarOfInfusion extends AbstractCrafter<Infusion> {
             this.newRecipe(ig, rt,
                 Infusion.TRUE_AIM,
 
-                new ItemStack[] {
+                AlchimiaUtils.recipe(
                     SlimefunItems.SYNTHETIC_SHULKER_SHELL, SlimefunItems.INFUSED_MAGNET, SlimefunItems.STAFF_WIND,
                     AlchimiaItems.DARKSTEEL, validRanged, AlchimiaItems.EXP_CRYSTAL,
                     new ItemStack(Material.SHULKER_BOX), SlimefunItems.INFUSED_ELYTRA, SlimefunItems.STEEL_THRUSTER
-                }
+                )
             );
         }
 
@@ -159,11 +158,11 @@ public class AltarOfInfusion extends AbstractCrafter<Infusion> {
             this.newRecipe(ig, rt,
                 Infusion.VOLATILITY,
 
-                new ItemStack[] {
+                AlchimiaUtils.recipe(
                     new ItemStack(Material.BLAZE_ROD), SlimefunItems.STAFF_FIRE, SlimefunItems.TALISMAN_FIRE,
                     AlchimiaItems.DARKSTEEL, validRanged, SlimefunItems.LAVA_GENERATOR_2,
                     new ItemStack(Material.TNT), SlimefunItems.SYNTHETIC_DIAMOND, SlimefunItems.LAVA_CRYSTAL
-                }
+                )
             );
         }
         // }}}
@@ -173,11 +172,11 @@ public class AltarOfInfusion extends AbstractCrafter<Infusion> {
             this.newRecipe(ig, rt,
                 Infusion.TOTEM_BATTERY,
 
-                new ItemStack[] {
+                AlchimiaUtils.recipe(
                     SlimefunItems.NECROTIC_SKULL, AlchimiaItems.CONDENSED_SOUL, AlchimiaItems.BENEVOLENT_BREW,
                     AlchimiaItems.ILLUMIUM, validChestplate, AlchimiaItems.EXP_CRYSTAL,
                     SlimefunItems.ESSENCE_OF_AFTERLIFE, SlimefunItems.ENERGIZED_CAPACITOR, SlimefunItems.ESSENCE_OF_AFTERLIFE
-                }
+                )
             );
         }
         // }}}
@@ -187,11 +186,11 @@ public class AltarOfInfusion extends AbstractCrafter<Infusion> {
             this.newRecipe(ig, rt,
                 Infusion.KNOCKBACK,
 
-                new ItemStack[] {
+                AlchimiaUtils.recipe(
                     SlimefunItems.TALISMAN_WHIRLWIND, new ItemStack(Material.STICKY_PISTON), AlchimiaItems.EXP_CRYSTAL,
                     SlimefunItems.GRANDPAS_WALKING_STICK, validFishingRod, new ItemStack(Material.STICKY_PISTON),
                     new ItemStack(Material.SLIME_BALL), SlimefunItems.GRANDPAS_WALKING_STICK, SlimefunItems.TALISMAN_WHIRLWIND
-                }
+                )
             );
         }
         // }}}
@@ -201,11 +200,11 @@ public class AltarOfInfusion extends AbstractCrafter<Infusion> {
             this.newRecipe(ig, rt,
                 Infusion.AUTO_REPLANT,
 
-                new ItemStack[] {
+                AlchimiaUtils.recipe(
                     new ItemStack(Material.COMPOSTER), AlchimiaItems.LIGHT_ESSENCE, new ItemStack(Material.WATER_BUCKET),
                     AlchimiaItems.ILLUMIUM, validHoe, SlimefunItems.FLUID_PUMP,
                     new ItemStack(Material.BONE_BLOCK), AlchimiaItems.LIGHT_MAGIC_PLANT, new ItemStack(Material.GRINDSTONE)
-                }
+                )
             );
         }
         // }}}
@@ -214,13 +213,13 @@ public class AltarOfInfusion extends AbstractCrafter<Infusion> {
 
     // {{{ Add a new recipe
     @Override
-    public void newRecipe(@Nonnull ItemGroup ig, @Nonnull RecipeType rt, @Nonnull Infusion output, @Nonnull ItemStack... input) {
+    public void newRecipe(@Nonnull ItemGroup ig, @Nonnull RecipeType rt, @Nonnull Infusion output, @Nonnull ItemStack[] items) {
         ItemStack[] newInput = new ItemStack[8];
 
         // Add outer items (items excluding middle slot) to new recipe
         int i = 0;
         int newI = 0;
-        for (ItemStack stack : input) {
+        for (ItemStack stack : items) {
             // 0 1 2
             // 3 4 5
             // 6 7 8
@@ -237,7 +236,12 @@ public class AltarOfInfusion extends AbstractCrafter<Infusion> {
         this.recipes.put(output, newInput);
 
         // Register guide item
-        new SlimefunItem(ig, output.guideItem(), rt, input).register(AlchimiaVitae.i());
+        new SlimefunItem(ig, output.guideItem(), rt, items).register(AlchimiaVitae.i());
+    }
+
+    @Override
+    public void newRecipe(@Nonnull ItemGroup ig, @Nonnull RecipeType rt, @Nonnull Infusion output, @Nonnull Object... input) {
+        this.newRecipe(ig, rt, output, AlchimiaUtils.recipe(input));
     }
     // }}}
     // }}}
@@ -491,7 +495,7 @@ public class AltarOfInfusion extends AbstractCrafter<Infusion> {
         private final SlimefunItemStack guideItem;
 
         Infusion(String key, String lore, SlimefunItemStack guideItem) {
-            this.key = AbstractAddon.createKey(key);
+            this.key = new NamespacedKey(AlchimiaVitae.i(), key);
             this.lore = lore;
             this.guideItem = guideItem;
         }

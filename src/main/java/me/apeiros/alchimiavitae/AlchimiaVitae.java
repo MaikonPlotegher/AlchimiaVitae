@@ -1,37 +1,43 @@
 package me.apeiros.alchimiavitae;
 
-import io.github.mooy1.infinitylib.core.AbstractAddon;
-import io.github.mooy1.infinitylib.metrics.bukkit.Metrics;
+import org.bukkit.plugin.java.JavaPlugin;
+
+import io.github.thebusybiscuit.slimefun5.api.SlimefunAddon;
+import io.github.thebusybiscuit.slimefun5.implementation.Slimefun;
 
 import me.apeiros.alchimiavitae.setup.Setup;
 
 /**
  * Main class
  */
-public class AlchimiaVitae extends AbstractAddon {
+public class AlchimiaVitae extends JavaPlugin implements SlimefunAddon {
 
     private static AlchimiaVitae instance;
 
-    public AlchimiaVitae() {
-        super("Apeiros-46B", "AlchimiaVitae", "master", "options.auto-update");
-    }
-
     @Override
-    public void enable() {
-        // Set instance
+    public void onEnable() {
         instance = this;
+
+        // Register translations for item lore / names
+        Slimefun.getItemTranslationService().registerTranslations(this);
 
         // Set up items and listeners
         Setup.setup(this);
-
-        // bStats
-        new Metrics(this, 15139);
     }
 
     @Override
-    public void disable() {
-        // Set instance to null
+    public void onDisable() {
         instance = null;
+    }
+
+    @Override
+    public JavaPlugin getJavaPlugin() {
+        return this;
+    }
+
+    @Override
+    public String getBugTrackerURL() {
+        return "https://github.com/Apeiros-46B/AlchimiaVitae/issues";
     }
 
     public static AlchimiaVitae i() {

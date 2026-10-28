@@ -15,7 +15,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
+import io.github.thebusybiscuit.slimefun5.api.items.ItemGroup;
 
 import me.apeiros.alchimiavitae.AlchimiaUtils;
 import me.apeiros.alchimiavitae.AlchimiaVitae;
@@ -25,11 +25,11 @@ import me.apeiros.alchimiavitae.setup.items.crafters.CosmicCauldron;
 public class PotionOfOsmosis extends AbstractListenerPotion {
 
     public PotionOfOsmosis(ItemGroup ig, CosmicCauldron cauldron) {
-        super(ig, AlchimiaItems.POTION_OF_OSMOSIS, AlchimiaUtils.RecipeTypes.COSMIC_CAULDRON, new ItemStack[] {
+        super(ig, AlchimiaItems.POTION_OF_OSMOSIS, AlchimiaUtils.RecipeTypes.COSMIC_CAULDRON, AlchimiaUtils.recipe(
                 AlchimiaItems.EXP_CRYSTAL, new ItemStack(Material.NETHERITE_SCRAP), AlchimiaItems.EXP_CRYSTAL,
                 AlchimiaItems.DARK_ESSENCE, new ItemStack(Material.HONEY_BOTTLE), AlchimiaItems.LIGHT_ESSENCE,
                 AlchimiaItems.DARKSTEEL, new ItemStack(Material.DRAGON_BREATH), AlchimiaItems.ILLUMIUM
-        }, cauldron);
+        ), cauldron);
     }
 
     // {{{ Handle potion drink
@@ -68,7 +68,7 @@ public class PotionOfOsmosis extends AbstractListenerPotion {
                 Color.FUCHSIA, effects, false,
                 "&aCreated from a",
                 AlchimiaUtils.format("<gradient:#6274e7:#8752a3>Potion of Osmosis</gradient>"),
-                "", AlchimiaUtils.itemType("Potion"));
+                "", AlchimiaUtils.itemType("Potion")).item();
 
         // {{{ Finish
         new BukkitRunnable() {

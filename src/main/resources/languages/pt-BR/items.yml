@@ -1,0 +1,185 @@
+AV_SOUL_COLLECTOR:
+  name: "&bColetor de Almas"
+  description:
+    - "&bExtrai almas"
+    - ""
+    - "&7Monstros derrotados soltam almas"
+    - "&73x mais EXP de todos os monstros"
+    - "&7Monstros do tipo Wither soltam"
+    - "&7almas adicionais"
+
+AV_PLANT_INFUSION_CHAMBER:
+  name: "&aCâmara de Infusão de Plantas"
+  description:
+    - "&bInfunde plantas com energia"
+    - "&bescura ou luminosa usando"
+    - "&bFragmentos Mágicos e Almas"
+
+AV_EXP_CRYSTALLIZER:
+  name: "&aCristalizador de Experiência"
+  description:
+    - "&aTransforma experiência em uma"
+    - "&aforma cristalina, estável e durável"
+
+AV_CONDENSED_SOUL:
+  name: "&bAlma Condensada"
+  description:
+    - "&bUma alma, condensada em uma esfera"
+    - "&9&oTalvez haja uma forma de"
+    - "&9&omanipular seu poder..."
+
+AV_GOOD_MAGIC_PLANT:
+  name: "&aPlanta de Magia da Luz"
+  description:
+    - "&aIrradia um brilho empíreo"
+
+AV_EVIL_MAGIC_PLANT:
+  name: "&cPlanta de Magia das Trevas"
+  description:
+    - "&cAbsorve luz demais para"
+    - "&cestar realizando fotossíntese"
+
+AV_EXP_CRYSTAL:
+  name: "&aCristal de Experiência"
+  description:
+    - "&aCristalizado."
+
+AV_GOOD_ESSENCE:
+  name: "&aEssência da Luz"
+  description:
+    - "&aPulsa com luminescência"
+
+AV_EVIL_ESSENCE:
+  name: "&cEssência das Trevas"
+  description:
+    - "&cAbsorve luz como uma"
+    - "&cesponja absorve água"
+
+AV_ILLUMIUM:
+  name: "&aBarra de Illumium"
+  description:
+    - "&aEmana luz intensamente em suas mãos"
+
+AV_DARKSTEEL:
+  name: "&cAço Sombrio"
+  description:
+    - "&cIrradia... escuridão?"
+
+AV_DIVINE_ALTAR:
+  name: "&5Altar Divino"
+  description:
+    - "&5Um aparato sagrado para a"
+    - "&5realização de rituais ancestrais"
+
+AV_MOLTEN_MYSTERY_METAL:
+  name: "&6Metal Misterioso Derretido"
+  description:
+    - "&6Um aglomerado de diferentes metais"
+
+AV_MYSTERY_METAL:
+  name: "&6Barra de Metal Misterioso"
+  description:
+    - "&6Contém múltiplos metais"
+
+AV_ORNATE_CAULDRON:
+  name: "&2Caldeirão Cósmico"
+  description:
+    - "&2Um altar para preparar poções avançadas"
+
+AV_POTION_OF_OSMOSIS:
+  name: "&dPoção da Osmose"
+  description:
+    - "&6Absorve seus efeitos de poção"
+    - "&6e guarda-os em um frasco ao &eClicar com o Botão Direito"
+
+AV_BENEVOLENT_BREW_POTION:
+  name: "&aPoção Benevolente"
+  description: []
+
+AV_MALEVOLENT_CONCOCTION_SPLASH_POTION:
+  name: "&cPoção Malevolente Arremessável"
+  description: []
+
+AV_ALTAR_OF_INFUSION:
+  name: "&dAltar de Infusão"
+  description:
+    - "&5Adiciona efeitos poderosos a ferramentas"
+    - ""
+    - "&7Funciona apenas em equipamentos de ouro, ferro,"
+    - "&7diamante e netherite, varas de pesca, arcos e bestas"
+
+AV_DESTRUCTIVE_CRITS_INFUSION:
+  name: "&c&lAcertos Críticos Destrutivos"
+  description:
+    - "&4Concede uma pequena chance de causar"
+    - "&4efeitos negativos ao oponente em um acerto crítico,"
+    - "&4além de causar dano adicional à armadura."
+
+AV_PHANTOM_CRITS_INFUSION:
+  name: "&bAcertos Críticos Fantasmas"
+  description:
+    - "&7Concede uma pequena chance de causar dano extra"
+    - "&7em um acerto crítico, ignorando a armadura"
+
+AV_FORCEFUL_INFUSION:
+  name: "&2Impactante"
+  description:
+    - "&2Concede a habilidade de disparar flechas que"
+    - "&2viajam mais longe e causam mais dano"
+
+AV_HEALING_INFUSION:
+  name: "&cCura"
+  description:
+    - "&cConcede a habilidade de curar alvos"
+    - "&catingidos em vez de feri-los"
+
+AV_TRUE_AIM_INFUSION:
+  name: "&dPontaria Certeira"
+  description:
+    - "&5Concede a habilidade de disparar flechas"
+    - "&5que não são afetadas pela gravidade"
+
+AV_VOLATILE_INFUSION:
+  name: "&4&lVolatilidade"
+  description:
+    - "&cConcede a habilidade de atirar bolas de fogo"
+
+AV_TOTEM_BATTERY_INFUSION:
+  name: "&6&lBateria de Totens"
+  description:
+    - "&6Armazena até 8 Totens da Imortalidade que irão revivê-lo"
+    - "&eGuarde um totem clicando com &7&lShift + Botão Direito &eenquanto"
+    - "&esegura um e estiver vestindo um peitoral infundido"
+
+AV_KNOCKBACK_INFUSION:
+  name: "&aRepulsão"
+  description:
+    - "&aEmpurra alvos em vez de"
+    - "&apuxá-los em sua direção"
+
+AV_AUTO_REPLANT_INFUSION:
+  name: "&aReplantio Automático"
+  description:
+    - "&2Concede a habilidade de replantar automaticamente"
+    - "&2plantações totalmente crescidas ao colhê-las"
+
+AV_REINFORCED_ALLOY_INGOT:
+  name: "&cBarra de Liga Reforçada"
+  description: []
+
+AV_HARDENED_METAL_INGOT:
+  name: "&7Metal Endurecido"
+  description: []
+
+AV_STEEL_INGOT:
+  name: "&7Barra de Aço"
+  description: []
+
+AV_DAMASCUS_STEEL_INGOT:
+  name: "&7Barra de Aço de Damasco"
+  description: []
+
+AV_COMPRESSED_CARBON:
+  name: "&8Carbono Comprimido"
+  description: []
+

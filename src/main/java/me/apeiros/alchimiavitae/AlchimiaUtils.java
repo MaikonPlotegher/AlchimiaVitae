@@ -19,13 +19,14 @@ import net.kyori.adventure.text.minimessage.tag.resolver.TagResolver;
 import net.kyori.adventure.text.minimessage.tag.standard.StandardTags;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
 
-import io.github.mooy1.infinitylib.core.AbstractAddon;
-import io.github.mooy1.infinitylib.groups.MultiGroup;
-import io.github.mooy1.infinitylib.groups.SubGroup;
-import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
+import io.github.thebusybiscuit.slimefun5.api.items.ItemGroup;
+import io.github.thebusybiscuit.slimefun5.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun5.api.items.groups.NestedItemGroup;
+import io.github.thebusybiscuit.slimefun5.api.items.groups.SubItemGroup;
+import io.github.thebusybiscuit.slimefun5.api.recipes.RecipeType;
+import io.github.thebusybiscuit.slimefun5.core.guide.categories.DefaultGuideCategories;
+import io.github.thebusybiscuit.slimefun5.libraries.dough.items.CustomItemStack;
+import io.github.thebusybiscuit.slimefun5.libraries.keys.NamespacedKey;
 
 import me.apeiros.alchimiavitae.setup.AlchimiaItems;
 
@@ -43,27 +44,27 @@ public class AlchimiaUtils {
     public class RecipeTypes {
 
         public static final RecipeType SOUL_COLLECTOR = new RecipeType(
-                AbstractAddon.createKey("soul_collector_type"), AlchimiaItems.SOUL_COLLECTOR,
+                new NamespacedKey(AlchimiaVitae.i(), "soul_collector_type"), AlchimiaItems.SOUL_COLLECTOR,
                 "", "&b&oExtract using the Soul Collector");
 
         public static final RecipeType PLANT_INFUSION_CHAMBER = new RecipeType(
-                AbstractAddon.createKey("plant_infusion_chamber_type"), AlchimiaItems.PLANT_INFUSION_CHAMBER,
+                new NamespacedKey(AlchimiaVitae.i(), "plant_infusion_chamber_type"), AlchimiaItems.PLANT_INFUSION_CHAMBER,
                 "", "&b&oInfuse using the Plant Infusion Chamber");
 
         public static final RecipeType EXP_CRYSTALLIZER = new RecipeType(
-                AbstractAddon.createKey("exp_crystallizer_type"), AlchimiaItems.EXP_CRYSTALLIZER,
+                new NamespacedKey(AlchimiaVitae.i(), "exp_crystallizer_type"), AlchimiaItems.EXP_CRYSTALLIZER,
                 "", "&b&oCrystallize using the Experience Crystallizer");
 
         public static final RecipeType DIVINE_ALTAR = new RecipeType(
-                AbstractAddon.createKey("divine_altar_type"), AlchimiaItems.DIVINE_ALTAR,
+                new NamespacedKey(AlchimiaVitae.i(), "divine_altar_type"), AlchimiaItems.DIVINE_ALTAR,
                 "", "&b&oFabricate using the Divine Altar");
 
         public static final RecipeType COSMIC_CAULDRON = new RecipeType(
-                AbstractAddon.createKey("cosmic_cauldron_type"), AlchimiaItems.COSMIC_CAULDRON,
+                new NamespacedKey(AlchimiaVitae.i(), "cosmic_cauldron_type"), AlchimiaItems.COSMIC_CAULDRON,
                 "", "&b&oBrew using the Cosmic Cauldron");
 
         public static final RecipeType INFUSION_ALTAR = new RecipeType(
-                AbstractAddon.createKey("infusion_altar_type"), AlchimiaItems.ALTAR_OF_INFUSION,
+                new NamespacedKey(AlchimiaVitae.i(), "infusion_altar_type"), AlchimiaItems.ALTAR_OF_INFUSION,
                 "", "&b&oInfuse using the Altar of Infusion");
 
     }
@@ -76,22 +77,31 @@ public class AlchimiaUtils {
     @UtilityClass
     public class ItemGroups {
 
-        public static final ItemGroup GENERAL = new SubGroup(
-                "av_general",
-                new CustomItemStack(Material.ENCHANTED_BOOK, "&6Alchimia Vitae &7- &2General"));
+        public static final NestedItemGroup MAIN = new NestedItemGroup(
+                new NamespacedKey(AlchimiaVitae.i(), "alchimia_vitae"),
+                CustomItemStack.create(Material.TOTEM_OF_UNDYING, "&6Alchimia Vitae"));
 
-        public static final ItemGroup ALTAR_RECIPES = new SubGroup(
-                "av_altar_recipes",
-                new CustomItemStack(Material.ENCHANTING_TABLE, "&6Alchimia Vitae &7- &5Transmutation"));
+        public static final ItemGroup GENERAL = new SubItemGroup(
+                new NamespacedKey(AlchimiaVitae.i(), "av_general"),
+                MAIN,
+                CustomItemStack.create(Material.ENCHANTED_BOOK, "&6Alchimia Vitae &7- &2General"))
+                .setCategory(DefaultGuideCategories.MAGIC);
 
-        public static final ItemGroup INFUSIONS = new SubGroup(
-                "av_infusions",
-                new CustomItemStack(Material.NETHER_STAR, "&6Alchimia Vitae &7- &dInfusion"));
+        public static final ItemGroup ALTAR_RECIPES = new SubItemGroup(
+                new NamespacedKey(AlchimiaVitae.i(), "av_altar_recipes"),
+                MAIN,
+                CustomItemStack.create(Material.ENCHANTING_TABLE, "&6Alchimia Vitae &7- &5Transmutation"))
+                .setCategory(DefaultGuideCategories.MAGIC);
 
-        public static final ItemGroup MAIN = new MultiGroup(
-                "alchimia_vitae",
-                new CustomItemStack(Material.TOTEM_OF_UNDYING, "&6Alchimia Vitae"),
-                GENERAL, ALTAR_RECIPES, INFUSIONS);
+        public static final ItemGroup INFUSIONS = new SubItemGroup(
+                new NamespacedKey(AlchimiaVitae.i(), "av_infusions"),
+                MAIN,
+                CustomItemStack.create(Material.NETHER_STAR, "&6Alchimia Vitae &7- &dInfusion"))
+                .setCategory(DefaultGuideCategories.TOOLS);
+
+        static {
+            MAIN.setCategory(DefaultGuideCategories.MISC);
+        }
 
     }
     // }}}
@@ -164,6 +174,20 @@ public class AlchimiaUtils {
     // }}}
 
     // {{{ Other utility methods
+    public static ItemStack[] recipe(Object... items) {
+        ItemStack[] array = new ItemStack[items.length];
+        for (int i = 0; i < items.length; i++) {
+            if (items[i] instanceof SlimefunItemStack sfis) {
+                array[i] = sfis.item();
+            } else if (items[i] instanceof ItemStack is) {
+                array[i] = is;
+            } else {
+                array[i] = null;
+            }
+        }
+        return array;
+    }
+
     public static boolean equalsAny(Object base, Object... comparisons) {
         boolean first = base.equals(comparisons[0]);
 

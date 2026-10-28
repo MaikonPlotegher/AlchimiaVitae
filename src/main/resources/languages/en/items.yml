@@ -1,0 +1,185 @@
+AV_SOUL_COLLECTOR:
+  name: "&bSoul Collector"
+  description:
+    - "&bExtracts souls"
+    - ""
+    - "&7Killed mobs will drop souls"
+    - "&73x EXP drops from all mobs"
+    - "&7Wither-related mobs will"
+    - "&7drop additional souls"
+
+AV_PLANT_INFUSION_CHAMBER:
+  name: "&aPlant Infusion Chamber"
+  description:
+    - "&bInfuses plants with dark"
+    - "&bor light energy using"
+    - "&bMagical Lumps and Souls"
+
+AV_EXP_CRYSTALLIZER:
+  name: "&aExperience Crystallizer"
+  description:
+    - "&aForms experience into a crystalline,"
+    - "&adurable, and stable form"
+
+AV_CONDENSED_SOUL:
+  name: "&bCondensed Soul"
+  description:
+    - "&bA soul, condensed into an orb"
+    - "&9&oPerhaps there is a way"
+    - "&9&oto manipulate its power..."
+
+AV_GOOD_MAGIC_PLANT:
+  name: "&aPlant of Light Magic"
+  description:
+    - "&aRadiates an empyreal glow"
+
+AV_EVIL_MAGIC_PLANT:
+  name: "&cPlant of Dark Magic"
+  description:
+    - "&cIt's taking in a bit too much"
+    - "&clight to be photosynthesizing"
+
+AV_EXP_CRYSTAL:
+  name: "&aExperience Crystal"
+  description:
+    - "&aCrystallized."
+
+AV_GOOD_ESSENCE:
+  name: "&aLight Essence"
+  description:
+    - "&aPulsates with luminescence"
+
+AV_EVIL_ESSENCE:
+  name: "&cDark Essence"
+  description:
+    - "&cAbsorbs light like a"
+    - "&csponge absorbs water"
+
+AV_ILLUMIUM:
+  name: "&aIllumium Ingot"
+  description:
+    - "&aIt energetically effuses light in your hand"
+
+AV_DARKSTEEL:
+  name: "&cDarksteel Ingot"
+  description:
+    - "&cIt radiates... with darkness?"
+
+AV_DIVINE_ALTAR:
+  name: "&5Divine Altar"
+  description:
+    - "&5A sacred apparatus for the"
+    - "&5performance of ancient rituals"
+
+AV_MOLTEN_MYSTERY_METAL:
+  name: "&6Molten Mystery Metal"
+  description:
+    - "&6A conglomerate of different metals"
+
+AV_MYSTERY_METAL:
+  name: "&6Mystery Metal Ingot"
+  description:
+    - "&6Contains many metals"
+
+AV_ORNATE_CAULDRON:
+  name: "&2Cosmic Cauldron"
+  description:
+    - "&2An altar for brewing advanced potions"
+
+AV_POTION_OF_OSMOSIS:
+  name: "&dPotion of Osmosis"
+  description:
+    - "&6Absorbs your potion effects"
+    - "&6and stores them in a bottle on &eRight Click"
+
+AV_BENEVOLENT_BREW_POTION:
+  name: "&aBenevolent Brew"
+  description: []
+
+AV_MALEVOLENT_CONCOCTION_SPLASH_POTION:
+  name: "&cMalevolent Concoction"
+  description: []
+
+AV_ALTAR_OF_INFUSION:
+  name: "&dAltar of Infusion"
+  description:
+    - "&5Adds powerful effects to tools"
+    - ""
+    - "&7Only works on gold, iron, diamond, netherite and"
+    - "&7gear, as well as fishing rods, bows, and crossbows"
+
+AV_DESTRUCTIVE_CRITS_INFUSION:
+  name: "&c&lDestructive Criticals"
+  description:
+    - "&4Grants a small chance to give your opponent"
+    - "&4negative status effects on a critical hit,"
+    - "&4as well as deal additional damage to armor."
+
+AV_PHANTOM_CRITS_INFUSION:
+  name: "&bPhantom Criticals"
+  description:
+    - "&7Grants a small chance to deal extra damage"
+    - "&7on a critical hit, which bypasses armor"
+
+AV_FORCEFUL_INFUSION:
+  name: "&2Forceful"
+  description:
+    - "&2Grants the ability to fire arrows that"
+    - "&2travel further and deal more damage"
+
+AV_HEALING_INFUSION:
+  name: "&cHealing"
+  description:
+    - "&cGrants the ability to heal hit"
+    - "&ctargets instead of harming them"
+
+AV_TRUE_AIM_INFUSION:
+  name: "&dTrue Aim"
+  description:
+    - "&5Grants the ability to fire arrows"
+    - "&5that are not affected by gravity"
+
+AV_VOLATILE_INFUSION:
+  name: "&4&lVolatility"
+  description:
+    - "&cGrants the ability to shoot fireballs"
+
+AV_TOTEM_BATTERY_INFUSION:
+  name: "&6&lTotem Battery"
+  description:
+    - "&6Stores up to 8 Totems of Undying which will resurrect you"
+    - "&eStore a totem by &7&lShift-Right-Clicking &ewhile holding"
+    - "&eone and while an infused chestplate is worn"
+
+AV_KNOCKBACK_INFUSION:
+  name: "&aKnockback"
+  description:
+    - "&aPushes targets away instead"
+    - "&aof pulling them towards you"
+
+AV_AUTO_REPLANT_INFUSION:
+  name: "&aAutomatic Re-plant"
+  description:
+    - "&2Grants the ability to automatically replant"
+    - "&2fully grown crops when harvesting them"
+
+AV_REINFORCED_ALLOY_INGOT:
+  name: "&cReinforced Alloy Ingot"
+  description: []
+
+AV_HARDENED_METAL_INGOT:
+  name: "&7Hardened Metal"
+  description: []
+
+AV_STEEL_INGOT:
+  name: "&7Steel Ingot"
+  description: []
+
+AV_DAMASCUS_STEEL_INGOT:
+  name: "&7Damascus Steel Ingot"
+  description: []
+
+AV_COMPRESSED_CARBON:
+  name: "&8Compressed Carbon"
+  description: []
+

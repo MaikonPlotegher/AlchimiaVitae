@@ -12,11 +12,11 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffectType;
 
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.core.attributes.MachineTier;
-import io.github.thebusybiscuit.slimefun4.core.attributes.MachineType;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
-import io.github.thebusybiscuit.slimefun4.utils.LoreBuilder;
+import io.github.thebusybiscuit.slimefun5.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun5.core.attributes.MachineTier;
+import io.github.thebusybiscuit.slimefun5.core.attributes.MachineType;
+import io.github.thebusybiscuit.slimefun5.libraries.dough.items.CustomItemStack;
+import io.github.thebusybiscuit.slimefun5.utils.LoreBuilder;
 
 import me.apeiros.alchimiavitae.AlchimiaUtils;
 import me.apeiros.alchimiavitae.AlchimiaVitae;
@@ -27,16 +27,16 @@ import me.apeiros.alchimiavitae.AlchimiaVitae;
 public class AlchimiaItems {
 
     // {{{ Menu items (for custom crafters)
-    public static final ItemStack IN_BG = new CustomItemStack(Material.ORANGE_STAINED_GLASS_PANE,
+    public static final ItemStack IN_BG = CustomItemStack.create(Material.ORANGE_STAINED_GLASS_PANE,
             AlchimiaUtils.format("<gradient:#ff68fc:#ff9a5c>Input</gradient>"));
 
-    public static final ItemStack CRAFT_BTN = new CustomItemStack(Material.LIME_STAINED_GLASS_PANE,
+    public static final ItemStack CRAFT_BTN = CustomItemStack.create(Material.LIME_STAINED_GLASS_PANE,
             AlchimiaUtils.format("<gradient:#39f792:#5c95ff>Craft</gradient>"), "&aClick to craft");
 
-    public static final ItemStack CRAFT_BG = new CustomItemStack(Material.CYAN_STAINED_GLASS_PANE,
+    public static final ItemStack CRAFT_BG = CustomItemStack.create(Material.CYAN_STAINED_GLASS_PANE,
             AlchimiaUtils.format("<gradient:#39f792:#5c95ff>Craft</gradient>"));
 
-    public static final ItemStack OUT_BG = new CustomItemStack(Material.CYAN_STAINED_GLASS_PANE,
+    public static final ItemStack OUT_BG = CustomItemStack.create(Material.CYAN_STAINED_GLASS_PANE,
             AlchimiaUtils.format("<gradient:#5cb8ff:#39f7e1>Output</gradient>"));
     // }}}
 
@@ -55,7 +55,7 @@ public class AlchimiaItems {
         meta.setUnbreakable(true);
 
         SOUL_COLLECTOR.setItemMeta(meta);
-        SOUL_COLLECTOR.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 3);
+        SOUL_COLLECTOR.addUnsafeEnchantment(Enchantment.SHARPNESS, 3);
     }
     // }}}
 
@@ -94,7 +94,7 @@ public class AlchimiaItems {
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 
         CONDENSED_SOUL.setItemMeta(meta);
-        CONDENSED_SOUL.addUnsafeEnchantment(Enchantment.LUCK, 1);
+        CONDENSED_SOUL.addUnsafeEnchantment(Enchantment.UNBREAKING, 1);
     }
 
     public static final SlimefunItemStack LIGHT_MAGIC_PLANT = new SlimefunItemStack("AV_GOOD_MAGIC_PLANT",
@@ -108,7 +108,7 @@ public class AlchimiaItems {
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 
         LIGHT_MAGIC_PLANT.setItemMeta(meta);
-        LIGHT_MAGIC_PLANT.addUnsafeEnchantment(Enchantment.LUCK, 1);
+        LIGHT_MAGIC_PLANT.addUnsafeEnchantment(Enchantment.UNBREAKING, 1);
     }
 
     public static final SlimefunItemStack DARK_MAGIC_PLANT = new SlimefunItemStack("AV_EVIL_MAGIC_PLANT",
@@ -123,7 +123,7 @@ public class AlchimiaItems {
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 
         DARK_MAGIC_PLANT.setItemMeta(meta);
-        DARK_MAGIC_PLANT.addUnsafeEnchantment(Enchantment.LUCK, 1);
+        DARK_MAGIC_PLANT.addUnsafeEnchantment(Enchantment.UNBREAKING, 1);
     }
 
     public static final SlimefunItemStack EXP_CRYSTAL = new SlimefunItemStack("AV_EXP_CRYSTAL",
@@ -137,7 +137,7 @@ public class AlchimiaItems {
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 
         EXP_CRYSTAL.setItemMeta(meta);
-        EXP_CRYSTAL.addUnsafeEnchantment(Enchantment.LUCK, 1);
+        EXP_CRYSTAL.addUnsafeEnchantment(Enchantment.UNBREAKING, 1);
     }
 
     public static final SlimefunItemStack LIGHT_ESSENCE = new SlimefunItemStack("AV_GOOD_ESSENCE",
@@ -164,7 +164,7 @@ public class AlchimiaItems {
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 
         ILLUMIUM.setItemMeta(meta);
-        ILLUMIUM.addUnsafeEnchantment(Enchantment.LUCK, 1);
+        ILLUMIUM.addUnsafeEnchantment(Enchantment.UNBREAKING, 1);
     }
 
     public static final SlimefunItemStack DARKSTEEL = new SlimefunItemStack("AV_DARKSTEEL",
@@ -178,7 +178,7 @@ public class AlchimiaItems {
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 
         DARKSTEEL.setItemMeta(meta);
-        DARKSTEEL.addUnsafeEnchantment(Enchantment.LUCK, 1);
+        DARKSTEEL.addUnsafeEnchantment(Enchantment.UNBREAKING, 1);
     }
     // }}}
 
@@ -224,11 +224,11 @@ public class AlchimiaItems {
 
     static {
         // Add effects
-        potEffectsMap.put(PotionEffectType.DAMAGE_RESISTANCE, new int[] {
+        potEffectsMap.put(PotionEffectType.RESISTANCE, new int[] {
                 cfg.getInt("options.potions.benevolent-brew.resistance.ticks"),
                 cfg.getInt("options.potions.benevolent-brew.resistance.level") - 1
         });
-        potEffectsMap.put(PotionEffectType.FAST_DIGGING, new int[] {
+        potEffectsMap.put(PotionEffectType.HASTE, new int[] {
                 cfg.getInt("options.potions.benevolent-brew.haste.ticks"),
                 cfg.getInt("options.potions.benevolent-brew.haste.level") - 1
         });
@@ -240,7 +240,7 @@ public class AlchimiaItems {
                 cfg.getInt("options.potions.benevolent-brew.speed.ticks"),
                 cfg.getInt("options.potions.benevolent-brew.speed.level") - 1
         });
-        potEffectsMap.put(PotionEffectType.JUMP, new int[] {
+        potEffectsMap.put(PotionEffectType.JUMP_BOOST, new int[] {
                 cfg.getInt("options.potions.benevolent-brew.jump.ticks"),
                 cfg.getInt("options.potions.benevolent-brew.jump.level") - 1
         });
@@ -261,7 +261,7 @@ public class AlchimiaItems {
                 cfg.getInt("options.potions.malevolent-concoction.weakness.ticks"),
                 cfg.getInt("options.potions.malevolent-concoction.weakness.level") - 1
         });
-        potEffectsMap.put(PotionEffectType.SLOW, new int[] {
+        potEffectsMap.put(PotionEffectType.SLOWNESS, new int[] {
                 cfg.getInt("options.potions.malevolent-concoction.slowness.ticks"),
                 cfg.getInt("options.potions.malevolent-concoction.slowness.level") - 1
         });

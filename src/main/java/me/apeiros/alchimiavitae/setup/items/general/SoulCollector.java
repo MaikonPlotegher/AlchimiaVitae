@@ -9,12 +9,12 @@ import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.core.handlers.EntityKillHandler;
-import io.github.thebusybiscuit.slimefun4.core.handlers.WeaponUseHandler;
-import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
+import io.github.thebusybiscuit.slimefun5.api.items.ItemGroup;
+import io.github.thebusybiscuit.slimefun5.api.items.SlimefunItem;
+import io.github.thebusybiscuit.slimefun5.api.recipes.RecipeType;
+import io.github.thebusybiscuit.slimefun5.core.handlers.EntityKillHandler;
+import io.github.thebusybiscuit.slimefun5.core.handlers.WeaponUseHandler;
+import io.github.thebusybiscuit.slimefun5.implementation.SlimefunItems;
 
 import me.apeiros.alchimiavitae.AlchimiaUtils;
 import me.apeiros.alchimiavitae.setup.AlchimiaItems;
@@ -22,11 +22,11 @@ import me.apeiros.alchimiavitae.setup.AlchimiaItems;
 public class SoulCollector extends SlimefunItem {
 
     public SoulCollector(ItemGroup ig) {
-        super(ig, AlchimiaItems.SOUL_COLLECTOR, RecipeType.ANCIENT_ALTAR, new ItemStack[] {
+        super(ig, AlchimiaItems.SOUL_COLLECTOR, RecipeType.ANCIENT_ALTAR, AlchimiaUtils.recipe(
                 SlimefunItems.EARTH_RUNE, SlimefunItems.SYNTHETIC_DIAMOND, SlimefunItems.AIR_RUNE,
                 SlimefunItems.WATER_RUNE, SlimefunItems.NECROTIC_SKULL, SlimefunItems.FIRE_RUNE,
                 SlimefunItems.ESSENCE_OF_AFTERLIFE, new ItemStack(Material.TOTEM_OF_UNDYING), SlimefunItems.ESSENCE_OF_AFTERLIFE
-        });
+        ));
     }
 
     // {{{ Handler to prevent use on players
@@ -68,7 +68,7 @@ public class SoulCollector extends SlimefunItem {
 
             // Add souls to drops
             for (int i = 0; i < souls; i++) {
-                e.getDrops().add(AlchimiaItems.CONDENSED_SOUL.clone());
+                e.getDrops().add(AlchimiaItems.CONDENSED_SOUL.item().clone());
             }
 
             // Multiple dropped experience

@@ -19,9 +19,9 @@ import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.ProtectionManager;
+import io.github.thebusybiscuit.slimefun5.implementation.Slimefun;
+import io.github.thebusybiscuit.slimefun5.libraries.dough.protection.Interaction;
+import io.github.thebusybiscuit.slimefun5.libraries.dough.protection.ProtectionManager;
 
 import me.apeiros.alchimiavitae.AlchimiaVitae;
 import me.apeiros.alchimiavitae.setup.items.crafters.AltarOfInfusion.Infusion;
@@ -86,9 +86,9 @@ public class MeleeWeaponListener implements Listener {
 
             // 1/4 chance to add slowness
             if (rand.nextInt(4) == 0) {
-                victim.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 15, 1));
+                victim.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, 15, 1));
 
-                w.spawnParticle(Particle.BLOCK_CRACK, l, 100, Material.STONE.createBlockData());
+                w.spawnParticle(Particle.BLOCK, l, 100, Material.STONE.createBlockData());
                 w.playSound(l, Sound.BLOCK_STONE_BREAK, 1, 1);
             }
 
@@ -96,15 +96,15 @@ public class MeleeWeaponListener implements Listener {
             if (rand.nextInt(4) == 0) {
                 victim.addPotionEffect(new PotionEffect(PotionEffectType.WEAKNESS, 10, 1));
 
-                w.spawnParticle(Particle.BLOCK_CRACK, l, 100, Material.DEEPSLATE.createBlockData());
+                w.spawnParticle(Particle.BLOCK, l, 100, Material.DEEPSLATE.createBlockData());
                 w.playSound(l, Sound.BLOCK_DEEPSLATE_BREAK, 1, 1);
             }
 
             // 1/8 Chance to add brief mining fatigue
             if (rand.nextInt(8) == 0) {
-                victim.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_DIGGING, 5, 3));
+                victim.addPotionEffect(new PotionEffect(PotionEffectType.MINING_FATIGUE, 5, 3));
 
-                w.spawnParticle(Particle.BLOCK_CRACK, l, 100, Material.REDSTONE_BLOCK.createBlockData());
+                w.spawnParticle(Particle.BLOCK, l, 100, Material.REDSTONE_BLOCK.createBlockData());
                 w.playSound(l, Sound.BLOCK_METAL_BREAK, 1, 1);
             }
         }

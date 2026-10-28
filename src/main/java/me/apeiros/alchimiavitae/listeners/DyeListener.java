@@ -5,7 +5,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.SheepDyeWoolEvent;
 import org.bukkit.inventory.PlayerInventory;
 
-import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
+import io.github.thebusybiscuit.slimefun5.utils.SlimefunUtils;
 
 import me.apeiros.alchimiavitae.AlchimiaVitae;
 import me.apeiros.alchimiavitae.setup.AlchimiaItems;
@@ -25,10 +25,10 @@ public class DyeListener implements Listener {
         PlayerInventory inventory = e.getPlayer().getInventory();
 
         // If player isn't holding a condensed soul in either hand, exit early
-        if (!SlimefunUtils.isItemSimilar(inventory.getItemInMainHand(), AlchimiaItems.CONDENSED_SOUL, true))
+        if (!SlimefunUtils.isItemSimilar(inventory.getItemInMainHand(), AlchimiaItems.CONDENSED_SOUL.item(), true))
             return;
 
-        if (!SlimefunUtils.isItemSimilar(inventory.getItemInOffHand(), AlchimiaItems.CONDENSED_SOUL, true))
+        if (!SlimefunUtils.isItemSimilar(inventory.getItemInOffHand(), AlchimiaItems.CONDENSED_SOUL.item(), true))
             return;
 
         // Cancel event

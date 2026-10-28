@@ -5,22 +5,24 @@ import javax.annotation.Nonnull;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
-import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.core.attributes.RecipeDisplayItem;
-import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
+import io.github.thebusybiscuit.slimefun5.api.items.ItemGroup;
+import io.github.thebusybiscuit.slimefun5.api.recipes.RecipeType;
+import io.github.thebusybiscuit.slimefun5.core.attributes.RecipeDisplayItem;
+import io.github.thebusybiscuit.slimefun5.implementation.SlimefunItems;
 
+import me.apeiros.alchimiavitae.AlchimiaUtils;
 import me.apeiros.alchimiavitae.setup.AlchimiaItems;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.abstractItems.AContainer;
+import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
 
 public class PlantInfusionChamber extends AContainer implements RecipeDisplayItem {
 
     public PlantInfusionChamber(ItemGroup ig) {
-        super(ig, AlchimiaItems.PLANT_INFUSION_CHAMBER, RecipeType.ANCIENT_ALTAR, new ItemStack[] {
+        super(ig, AlchimiaItems.PLANT_INFUSION_CHAMBER, RecipeType.ANCIENT_ALTAR, AlchimiaUtils.recipe(
                 SlimefunItems.ELECTRIC_PRESS, SlimefunItems.ELECTRIC_MOTOR, SlimefunItems.ELECTRIC_PRESS,
                 SlimefunItems.HARDENED_GLASS, SlimefunItems.HEATED_PRESSURE_CHAMBER_2, SlimefunItems.HARDENED_GLASS,
                 SlimefunItems.HEATING_COIL, SlimefunItems.ANCIENT_ALTAR, SlimefunItems.HEATING_COIL
-        });
+        ));
 
         this.setProcessingSpeed(1).setCapacity(128).setEnergyConsumption(32);
     }
@@ -28,33 +30,39 @@ public class PlantInfusionChamber extends AContainer implements RecipeDisplayIte
     // {{{ Register recipes
     public void registerDefaultRecipes() {
         this.registerRecipe(60,
-            new ItemStack[] {
+            AlchimiaUtils.recipe(
                 new ItemStack(Material.OAK_SAPLING),
                 SlimefunItems.MAGIC_LUMP_3
-            },
+            ),
 
-            new ItemStack[] {
+            AlchimiaUtils.recipe(
                 AlchimiaItems.LIGHT_MAGIC_PLANT
-            }
+            )
         );
 
         this.registerRecipe(60,
-            new ItemStack[] {
+            AlchimiaUtils.recipe(
                 new ItemStack(Material.OAK_SAPLING),
                 AlchimiaItems.CONDENSED_SOUL
-            },
+            ),
 
-            new ItemStack[] {
+            AlchimiaUtils.recipe(
                 AlchimiaItems.DARK_MAGIC_PLANT
-            }
+            )
         );
     }
     // }}}
 
+    @Override
+    protected void constructMenu(BlockMenuPreset preset) {
+        preset.optOutOfHeaderItem();
+        super.constructMenu(preset);
+    }
+
     // {{{ Other
     @Override
     public ItemStack getProgressBar() {
-        return new ItemStack(Material.GRASS);
+        return new ItemStack(Material.SHORT_GRASS);
     }
 
     @Nonnull
